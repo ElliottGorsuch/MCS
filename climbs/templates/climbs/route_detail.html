@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ route.name }}</title>
+</head>
+<body>
+    <h1>{{ route.name }}</h1>
+    <p><strong>Mountain:</strong> <a href="{% url 'climbs:mountain_detail' route.mountain.pk %}">{{ route.mountain.name }}</a></p>
+    <p><strong>Distance:</strong> {{ route.distance }} km</p>
+    <p><strong>Elevation Gain:</strong> {{ route.elevation_gain }} m</p>
+    <h3 class="mt-4">Scores</h3>
+<ul class="list-group">
+    <li class="list-group-item"><strong>Final Score (MCS):</strong> {{ route.final_score }}</li>
+    <li class="list-group-item"><strong>Difficulty Score:</strong> {{ route.difficulty_score }}</li>
+    <li class="list-group-item"><strong>Technical Score:</strong> {{ route.technical_score }}</li>
+    <li class="list-group-item"><strong>Danger Score:</strong> {{ route.danger_score }}</li>
+    <li class="list-group-item"><strong>Logistics Score:</strong> {{ route.logistics_score }}</li>
+</ul>
+
+    <p><strong>Environment:</strong> {{ route.environment }}</p>
+    <p><strong>Technical Difficulty:</strong> {{ route.technical_difficulty }}</p>
+    <p><strong>Glacier Travel:</strong> {{ route.glacier_travel }}</p>
+    <p><strong>Danger Factors:</strong> {{ route.danger_factors }}</p>
+    <p><strong>Duration:</strong> {{ route.duration }} hours</p>
+    <p><strong>Permit Required:</strong> {{ route.permit_required }}</p>
+    <p><strong>Permit Cost Over 24h:</strong> ${{ route.permit_cost_over_24 }}</p>
+    <p><strong>Permit Cost Under 24h:</strong> ${{ route.permit_cost_under_24 }}</p>
+    <p><strong>Access Difficulty:</strong> {{ route.access_difficulty }}</p>
+    <p><strong>Gear Required:</strong> {{ route.gear_required }}</p>
+
+    <h2>Weather Data</h2>
+    <ul>
+        {% for weather in route.weather_data.all %}
+            <li>
+                <strong>{{ weather.month }}:</strong> {{ weather.weather_conditions }} (Avalanche Risk: {{ weather.avalanche_risk }})
+            </li>
+        {% empty %}
+            <li>No weather data available for this route.</li>
+        {% endfor %}
+    </ul>
+
+    <p><a href="{% url 'climbs:mountain_detail' route.mountain.pk %}">Back to {{ route.mountain.name }}</a></p>
+</body>
+</html>

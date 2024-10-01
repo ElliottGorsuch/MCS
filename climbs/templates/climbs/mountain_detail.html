@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ mountain.name }}</title>
+</head>
+<body>
+    <h1>{{ mountain.name }}</h1>
+    <p><strong>Location:</strong> {{ mountain.location }}</p>
+    <p><strong>Elevation:</strong> {{ mountain.elevation }} m</p>
+    <p><strong>Latitude:</strong> {{ mountain.latitude }}</p>
+    <p><strong>Longitude:</strong> {{ mountain.longitude }}</p>
+    <p><strong>Average MCS:</strong> {{ mcs_average }}</p>
+
+
+    <h2>Routes</h2>
+    <ul>
+        {% for route in mountain.routes.all %}
+            <li>
+                <a href="{% url 'climbs:route_detail' route.pk %}">{{ route.name }}</a>
+            </li>
+        {% empty %}
+            <li>No routes available for this mountain.</li>
+        {% endfor %}
+    </ul>
+
+    <p><a href="{% url 'climbs:mountain_list' %}">Back to Mountain List</a></p>
+</body>
+</html>

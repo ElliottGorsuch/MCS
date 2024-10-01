@@ -1,0 +1,41 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment directories
+venv/
+env/
+ENV/
+venv.bak/
+
+# Django SQLite database
+db.sqlite3
+*.sqlite3
+
+# Logs
+*.log
+
+# Media uploads
+media/
+
+# Static files
+staticfiles/
+
+# Local settings
+*.local_settings.py
+
+# IDE settings
+.vscode/
+.idea/
+
+# MacOS system files
+.DS_Store
+
+# Python egg info
+*.egg-info/
+.eggs/
+
+# Secrets (if any)
+.env
+

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% extends 'climbs/base.html' %}
+
+    {% block title %}Mountain List{% endblock %}
+    
+    {% block content %}
+    <h1 class="mb-4">Mountain List</h1>
+    <ul class="list-group">
+        {% for mountain in mountains %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <a href="{% url 'climbs:mountain_detail' mountain.pk %}">{{ mountain.name }}</a>
+                <span>
+                    Location: {{ mountain.location }} |
+                    Elevation: {{ mountain.elevation }} m |
+                    Average MCS: {{ mountain.mcs_average }}
+                </span>
+            </li>
+        {% endfor %}
+    </ul>
+    {% endblock %}
+    

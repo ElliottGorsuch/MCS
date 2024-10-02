@@ -18,8 +18,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+ALLOWED_HOSTS = ['mcs-app-pix3.onrender.com']
 
-ALLOWED_HOSTS = ['*']  # Allow all hosts for now; restrict in production
 
 from pathlib import Path
 

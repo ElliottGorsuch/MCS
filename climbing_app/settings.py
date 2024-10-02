@@ -21,8 +21,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 DEBUG = False
 
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost').split(',')
-ALLOWED_HOSTS = ['mcs-app-pix3.onrender.com']
+ALLOWED_HOSTS = ['64.225.90.121']
+
 
 
 from pathlib import Path
